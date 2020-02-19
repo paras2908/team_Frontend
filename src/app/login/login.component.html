@@ -1,0 +1,44 @@
+
+<div class="bgi2">
+    <div class="container">
+        <div class="row justify-content-center">
+    <div class="col-md-5 mt-5 mb-5">
+    <mat-card style="background-color:rgb(180, 180, 252);">
+        <mat-card-header>
+            <div mat-card-avatar id ="avatar"></div>
+            <mat-card-title style="font-size:30px">LOG-IN</mat-card-title>
+        </mat-card-header>
+        <div class="card-body">
+            <form class="example-form" [formGroup]="loginform" (submit)="formSubmit(loginform.value)">
+                <div>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Username" type="text" formControlName="username">
+
+                    <fa-icon class="float" [icon] ="userIcon" matSuffix></fa-icon>
+                </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+
+                <input matInput placeholder="Password" type="password" formControlName="password">
+
+                <fa-icon class="float" [icon] ="lock" matSuffix></fa-icon>
+            </mat-form-field>
+
+
+
+                <button mat-raised-button color="primary" style="border-radius:50px" class="btn-block"> Submit</button>
+            </div>
+            </form>
+            <div class="container mt-4 cursor">
+                <p [routerLink]="['/resetpw']" routerLinkActive="router-link-active" class="h6 text-center">Forgot your password? Click me.</p>
+                <hr>
+                <p class="col" [routerLink]="['/register']" routerLinkActive="router-link-active" class="h6 text-center">Not registered yet? Click me.</p>
+                </div>
+        </div>
+    </mat-card>
+    </div>
+
+        </div>
+    </div>
+    </div>

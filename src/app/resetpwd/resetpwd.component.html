@@ -1,0 +1,44 @@
+
+<div class="bgi">
+
+
+  <div class="container">
+
+      <div class="row justify-content-center">
+          <div class="card col-md-6 mt-5 mb-5" style="background-color: rgba(87, 85, 85, 0.664);">
+              <div class="card-header">
+                  <h1 class=" text-center text-warning">Reset Password</h1>
+              </div>
+              <div class="card-body">
+                  <label class="text-light">Email</label>
+                  <input class="form-control" type="email" #email>
+                 <button class="btn btn-primary btn-block mt-3" (click)="sendOTP(email.value)">Send OTP</button>
+                  <div class="container">
+                      <br>
+                  <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="text-light">Click me to go to the log-in page.</a>
+                  </div>
+              </div>
+          </div>
+
+
+
+      </div>
+      <div class="card mt-3" *ngIf ="showReset" style="background-color: rgba(85, 82, 82, 0.658);">
+          <div class="card-body">
+              <form [formGroup]="resetform" (submit)="resetPassword(resetform.value)">
+                  <label class="text-light">Enter OTP</label>
+                  <input class="form-control" formControlName="otp">
+                  <label class="text-light">Enter new password</label>
+                  <input class="form-control" formControlName="new">
+                  <label class="text-light">Confirm password</label>
+                  <input class="form-control" formControlName="confirm">
+                  <br>
+                  <button class="btn btn-warning btn-block" >Reset</button>
+              </form>
+          </div>
+
+      </div>
+
+  </div>
+
+  </div>

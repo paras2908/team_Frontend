@@ -1,0 +1,162 @@
+<div class="padding">
+    <div class="container">
+            <div class="row">
+                    <div class="column col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <img class="image" src="./assets/image 6.jpg" height=400px width="500px">
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                            <mat-card>
+                                <p class="text-muted h5">Team Collaboration</p>
+                                <p class="h4 mt-3">Create Account to Continue</p>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                                <form [formGroup]="registerForm" (submit)="userSubmit(registerForm.value)">
+                                                    <mat-form-field id="firstl" appearance="outline" style="font-size: small;" class="col-md-5">
+                                                        <mat-label>First Name</mat-label>
+                                                        <input matInput placeholder="Mr. Anderson" formControlName="first">
+                                                        <!-- <p matSuffix>@gmail.com</p> -->
+                                                        <mat-error *ngIf="getControl('first').errors">First name required</mat-error>
+                                                    </mat-form-field>
+                                                    <!-- <div class="col-md-1"></div> -->
+                                                    <mat-form-field appearance="outline"  style="font-size: small;" class="col-md-5">
+                                                        <mat-label>Last Name</mat-label>
+                                                        <input matInput placeholder="" formControlName="last">
+                                                        <!-- <p matSuffix>@gmail.com</p> -->
+                                                        <mat-error></mat-error>
+                                                    </mat-form-field>
+                                                    <mat-form-field id="fullw" appearance="outline"  style="font-size: small;" class="col-md-10">
+                                                        <mat-label>Username</mat-label>
+                                                        <input matInput placeholder="Mr. Paras" formControlName="username">
+                                                        <!-- <p matSuffix>@gmail.com</p> -->
+                                                        <mat-error></mat-error>
+                                                    </mat-form-field>
+                                                    <mat-form-field id="fullw" appearance="outline"  style="font-size: small;" class="col-md-10">
+                                                        <mat-label>Email</mat-label>
+                                                        <input matInput placeholder="parasjain3005@mail.com" formControlName="email">
+                                                        <!-- <p matSuffix>@gmail.com</p> -->
+                                                        <!-- <mat-error *ngIf="getControl('email').errors.required">Email is required</mat-error> -->
+                                                        <mat-error *ngIf="getControl('email').errors">Invalid email</mat-error>
+                                                    </mat-form-field>
+                                                    <mat-form-field id="firstl" appearance="outline"  style="font-size: small;" class="col-md-5">
+                                                        <mat-label>Password</mat-label>
+                                                        <input matInput placeholder="*******" formControlName="password" type="password">
+                                                        <!-- <p matSuffix>@gmail.com</p> -->
+                                                        <mat-error *ngIf="getControl('password').errors">Invalid Password</mat-error>
+                                                    </mat-form-field>
+
+                                                    <mat-form-field appearance="outline"  style="font-size: small;" class="col-md-5">
+                                                        <mat-label>Confirm Password</mat-label>
+                                                        <input matInput placeholder="*******" formControlName="confirm" type="password">
+                                                        <!-- <p matSuffix>@gmail.com</p> -->
+                                                        <mat-hint>Use a strong password</mat-hint>
+                                                        <mat-error *ngIf="getControl('confirm')">Password do not match</mat-error>
+                                                    </mat-form-field>
+                                                    <mat-icon (click)="toggleVis()">visibility</mat-icon>
+
+                                                    <div class="mt-4 row">
+                                                        <a mat-button color="primary" [routerLink]="['/login']" routerLinkActive="router-link-active" >Sign In Instead</a>
+                                                        <button mat-flat-button color="primary">Sign Up</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        <!--<div class="col-md-4">
+                                        //  <img class="img-fluid" src="https://pictures.brafton.com/x_0_0_0_14106291_800.jpg" alt="">
+                                        </div>-->
+                                        <input type="file" (change)="onFileChanged($event)" #fileInput>
+                                    </div>
+                                </div>
+                            </mat-card>
+                            </div>
+                        </div>
+            </div>
+    </div>
+</div>
+
+<div class="section section-v2 section_pm-problems">
+  <div class="wrapper section__wrapper">
+    <div class="section-v2__subheader section-v2__subheader_v2 section-v2__subheader_main">problems</div>
+    <h2 class="section-v2__header section-v2__header_v2 section-v2__header_main">Solved by LinkUp</h2>
+    </div>
+    <div class="pm-problems__row pm-problems__carousel slick-initialized slick-slider">
+<div class="pm-problems__row_item" style="width: 490px;">
+  <button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style ="">Previous</button>
+  <div class="pm-problems__row_item-inner">
+    <div class="pm-problems__row_item-visible">
+      <div class="pm-problems__row_item-num">01</div>
+      <div class="pm-problems__row_item-title">You’ll no longer have to use separate apps.</div>
+    </div>
+    <div class="pm-problems__row_item-hidden">
+      <div class="pm-problems__row_item-solution">solution</div>
+      <div class="pm-problems__row_item-text">
+        Add Kanban Boards, Gantt charts, Calendars, and more alongside docs, conversations, reminders, spreadsheets,
+        and embeds to keep all of your work in one place.
+      </div>
+    </div>
+    </div>
+    </div>
+    <div class="pm-problems__row_item" style="width: 295px;">
+    <div class="pm-problems__row_item-inner">
+    <div class="pm-problems__row_item-visible">
+    <div class="pm-problems__row_item-num">02</div>
+    <div class="pm-problems__row_item-title">You’ll know what everyone is working on.</div>
+    </div>
+    <div class="pm-problems__row_item-hidden">
+    <div class="pm-problems__row_item-solution">solution</div>
+    <div class="pm-problems__row_item-text">
+      View other people's profiles to see what they are working on and what they'll work on next for ultimate and
+      unprecedented transparency.
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="pm-problems__row_item" style="width: 295px;">
+    <div class="pm-problems__row_item-inner">
+    <div class="pm-problems__row_item-visible">
+    <div class="pm-problems__row_item-num">03</div>
+    <div class="pm-problems__row_item-title">Everyone knows what to do next.</div>
+    </div>
+    <div class="pm-problems__row_item-hidden">
+    <div class="pm-problems__row_item-solution">solution</div>
+    <div class="pm-problems__row_item-text">
+      Use Inbox to see what you have to work on next.
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="pm-problems__row_item" style="width: 490px;">
+    <div class="pm-problems__row_item-inner">
+    <div class="pm-problems__row_item-visible">
+    <div class="pm-problems__row_item-num">04</div>
+    <div class="pm-problems__row_item-title">All teams can work together, finally.</div>
+    </div>
+    <div class="pm-problems__row_item-hidden">
+    <div class="pm-problems__row_item-solution">solution</div>
+    <div class="pm-problems__row_item-text">
+      ClickUp's 'Spaces' are completely customizable, so every type of team can work together while using their own
+      Space. Use a simple Space for something like customer service and a complex Space for engineering.
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="pm-problems__row_item" style="width: 295px;">
+    <div class="pm-problems__row_item-inner">
+    <div class="pm-problems__row_item-visible">
+    <div class="pm-problems__row_item-num">05</div>
+    <div class="pm-problems__row_item-title">You’ll get birds-eye view of literally everything.</div>
+    </div>
+    <div class="pm-problems__row_item-hidden">
+    <div class="pm-problems__row_item-solution">solution</div>
+    <div class="pm-problems__row_item-text">
+      View every single task across your entire team in any way you want. Sort, filter, and manage all tasks at a
+      birds-eye view!
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+      </div>
+
+

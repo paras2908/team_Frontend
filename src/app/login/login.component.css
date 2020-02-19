@@ -1,0 +1,32 @@
+button:focus{
+  outline:none;
+}
+
+.cursor{
+cursor:pointer;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+#avatar
+{
+  background-image: url(https://cdn2.iconfinder.com/data/icons/user-icon-2-1/100/user_5-15-512.png);
+  background-size: cover;
+}
+
+.float{
+  float:right;
+}
+
+.label-error{
+  color:red;
+  font-size:smaller;
+}

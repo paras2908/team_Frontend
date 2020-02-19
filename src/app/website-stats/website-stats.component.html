@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="card-header">
+    <h3>Details of Users</h3>
+  </div>
+  <div class="card-body">
+    <p>No of users Registered : {{registeredusers.length}}</p>
+    <div *ngFor="let user of registeredusers"></div>
+      Username : {{user.Username}}
+      </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="chart" id="regByDate" styles="height: 400px;width:700px;"></div>
+    </div>
+  </div>
