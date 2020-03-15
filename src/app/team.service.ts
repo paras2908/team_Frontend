@@ -14,12 +14,23 @@ export class TeamService {
     return this.http.post(this.url + '/add', data);
   }
 
-  getTeamByAdmin(adminId){
+  getTeamById(id) {
+    return this.http.get(this.url + `/getbyid/${id}`);
+  }
+
+  getTeamByMember(userid) {
+     return this.http.get(this.url + `/getteams/${userid}`);
+  }
+
+  getTeamByAdmin(adminId) {
     return this.http.get(this.url + `/getbyadminid/${adminId}`);
   }
 
-  addMember(team_id, teamdata){
+  updateTeam(team_id, teamdata) {
     return this.http.put(this.url + `/updateteam/${team_id}`, teamdata);
+  }
+  removeMember(team_id, teamdata) {
+    return this.http.delete(this.url + `/updateteam/${team_id}`, teamdata);
   }
 
 

@@ -1,2 +1,18 @@
-<input #message>
-<button (click)="sendMessage(message.value)">Send message</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <p class="h5">team member</p>
+    </div>
+    <div class="col-md-4">
+      <div id="chat-area">
+
+      </div>
+      <div id="send-area">
+        <form [formGroup]="chatform" (submit)="sendMessage(chatform.value)">
+          <input formControlName="message">
+          <button>Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

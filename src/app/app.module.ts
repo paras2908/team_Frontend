@@ -24,6 +24,9 @@ import { TeamregisterComponent } from './teamregister/teamregister.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { UserdashComponent } from './userdash/userdash.component';
 import { TeamdashComponent } from './teamdash/teamdash.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { ProgressreportComponent } from './progressreport/progressreport.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @Injectable({providedIn: 'root'})
 export class ServiceNameService {
@@ -46,7 +49,9 @@ export class ServiceNameService {
     ChatRoomComponent,
     TeamregisterComponent,
     UserdashComponent,
-    TeamdashComponent
+    TeamdashComponent,
+    UserprofileComponent,
+    ProgressreportComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +70,7 @@ export class ServiceNameService {
     MatSidenavModule,
     FontAwesomeModule,
     SlickCarouselModule,
+    SweetAlert2Module,
 
   ],
   providers: [],

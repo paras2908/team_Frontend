@@ -30,27 +30,26 @@ export class LoginComponent implements OnInit {
   }
   formSubmit(formdata) {
     console.log('meh');
-    if ( formdata.invalid ){
-      alert('ínvalid form')
+    if ( formdata.invalid ) {
+      alert('ínvalid form');
       return; }
 
     this.authservice.getUser(formdata.username).subscribe(data => {
     const user: Users = data;
 
     if (user) {
-      if (user.password === formdata.password )
-       sessionStorage.setItem("user",JSON.stringify(user));
+      if (user.password === formdata.password ) {
+        sessionStorage.setItem( "user" , JSON.stringify(user));
         this.authservice.setLogin();
-        if(user['admin']){
-          this.router.navigate(['/admin'])
-        }
-        else{
-          this.router.navigate(['/home'])
-        }
+          if (user['admin']) {
+            this.router.navigate(['/admindash'])
+            } else {
+            this.router.navigate(['/userdash'])
+           }
+      }
     }
-  })
+  });
 }
-
 }
 
 

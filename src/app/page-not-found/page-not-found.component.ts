@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import {RegisterComponent} from '../register/register.component';
 
 @Component({
   selector: 'app-page-not-found',

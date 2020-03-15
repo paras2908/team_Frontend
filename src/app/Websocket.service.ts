@@ -13,8 +13,35 @@ export class  WebSocketService {
   constructor() {
     this.socket = io(this.url);
   }
+
+  // createTeam(teamId){
+  //   console.log(teamId);
+  //   this.socket = io(this.url);
+  //   this.socket.emit('çreateteam', teamId);
+  //   this.socket.on('teamcreated', data => {
+  //     console.log(`socket id : ${data}`);
+  //     return data;
+  //   });
+  // }
+
+  joinTeam(team){
+    this.socket.emit('jointeam', team);
+  }
+
 sendMessage(message){
   this.socket.emit('msg', message);
+}
+
+sendTeamMessage(data){
+  this.socket.emit('teamMsg', data);
+}
+
+recieveTeamMessage(){
+  return Observable.create(observer => {
+    this.socket.on('recTeamMsg', (data) => {
+      observer.next(data);
+    })
+  })
 }
 
 receiveMessage(){
@@ -35,4 +62,5 @@ listen(eventName: string) {
  emit(eventName: string, data: any){
     this.socket.emit(eventName,data);
  }
+
 }

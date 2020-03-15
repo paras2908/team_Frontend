@@ -21,10 +21,10 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'admindash', component: AdmindashComponent},
   {path: 'userdash', component: UserdashComponent},
-  { path: 'register_team', component: TeamregisterComponent},
+  // { path: 'register_team', component: UserdashComponent},
   {path : 'chat', component : ChatRoomComponent},
   {path : 'resetpw' , component : ResetpwdComponent},
-  {path : 'teamdash', component : TeamdashComponent},
+  {path : 'teamdash/:teamid', component : TeamdashComponent},
   {path : '**', component: PageNotFoundComponent},
 ];
 

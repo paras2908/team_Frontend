@@ -1,5 +1,6 @@
 <link href="/assets/Fontawesome/all.min.css" rel="stylesheet" type="text/css">
 <link href="/assets/sb-admin-2.min.css" rel="stylesheet">
+
 <div id="wrapper">
 
   <!-- Sidebar -->
@@ -10,7 +11,9 @@
       <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
       </div>
-      <div class="sidebar-brand-text mx-3">Hello Admin</div>
+      <div class="sidebar-brand-text mx-3">
+        <h6 *ngIf="teamdata">{{teamdata.name}}</h6>
+      </div>
     </a>
 
     <!-- Divider -->
@@ -20,7 +23,7 @@
     <li class="nav-item active">
       <a class="nav-link" href="">
         <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Team Dashboard</span></a>
+        <span>Your Dashboard</span></a>
     </li>
 
     <!-- Divider -->
@@ -28,37 +31,53 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-      Interface
+      Members
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
-        <span>Components</span>
+        <span>Manage</span>
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Custom Components:</h6>
-          <a class="collapse-item" href="buttons.html">Buttons</a>
-          <a class="collapse-item" href="cards.html">Cards</a>
+          <!--<h6 class="collapse-header">Add Members</h6>-->
+          <a class="collapse-item" (click)="display_activemem()">Active Members</a>
+          <a class="collapse-item" (click)="display_newmem()">Add New Member</a>
+          <a class="collapse-item" (click)="remove_activemem()">Remove Member</a>
         </div>
       </div>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProject" aria-expanded="true" aria-controls="collapseUtilities">
+        <i class="fas fa-fw fa-briefcase"></i>
+        <span>Project Management</span>
+      </a>
+      <div id="collapseProject" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <!--<h6 class="collapse-header">Custom Utilities:</h6>-->
+          <a class="collapse-item" href="">Create Project</a>
+          <a class="collapse-item" href="">Modify Project</a>
+          <a class="collapse-item" href="">Terminate Project</a>
+          <a class="collapse-item" href="">Check Progress</a>
+        </div>
+      </div>
+    </li>
+
+    <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-fw fa-wrench"></i>
-        <span>Utilities</span>
+        <span>Other Utilities</span>
       </a>
       <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Custom Utilities:</h6>
-          <a class="collapse-item" href="utilities-color.html">Colors</a>
-          <a class="collapse-item" href="utilities-border.html">Borders</a>
-          <a class="collapse-item" href="utilities-animation.html">Animations</a>
-          <a class="collapse-item" href="utilities-other.html">Other</a>
+          <!--<h6 class="collapse-header">Custom Utilities:</h6>-->
+          <a class="collapse-item" href="">File Sharing</a>
+          <a class="collapse-item" href="">Video Conferencing</a>
+          <a class="collapse-item" (click)="showChat()">Chats</a>
         </div>
       </div>
     </li>
@@ -71,19 +90,88 @@
       Addons
     </div>
 </ul>
-<h3 *ngIf="teamdata">{{teamdata.name}}</h3>
-<mat-card>
-<mat-card-content class="card-body" *ngIf="teamdata">
-  <div *ngFor="let member of teamdata.member_id">
-    <p class="h5">
-      {{member}}
-    </p>
-  </div>
-</mat-card-content>
-</mat-card>
+<div>
+  <p>Welcome To the Dashboard </p>
+  <div class="col-justify-content-center">
+    <div class="mx-4" *ngIf="teamdata && temp2">
+      <span style="width: 100%">Current Members</span>
+      <br>
+      <div class="ml-4  d-inline">
+        <!-- Section: Team v.1 -->
+          <section class="team-section text-center my-5">
+               <h2 class="h1-responsive font-weight-bold my-5">{{teamdata.name}}</h2>
 
-<mat-card>
-  <mat-card-content class="card-body" *ngIf="teamdata">
-    <form action=""></form>
-  </mat-card-content>
-  </mat-card>
+                <!-- Section description -->
+                <p class="grey-text w-responsive mx-auto mb-5">Our Members</p>
+                 <!-- Grid row -->
+                 <div class="row justify-content-center">
+                    <!-- Grid column -->
+                    <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" *ngFor="let member of teamdata.member_id">
+                      <button class="btn btn-danger" (click)="removeMember(member._id)">Remove</button>
+                    <div class="avatar mx-auto d-inline" >
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="rounded-circle z-depth-1"
+                      alt="Sample avatar">
+                    <h5 class="font-weight-bold mt-4 mb-3">{{member.username}}</h5>
+                    <p class="text-uppercase blue-text"><strong>Graphic designer</strong></p>
+                    <p class="grey-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+                      adipisci sed quia non numquam modi tempora eius.</p>
+                    <ul class="list-unstyled mb-0">
+                          <!-- Facebook -->
+                          <a class="p-2 fa-lg fb-ic">
+                              <i class="fab fa-facebook-f blue-text"> </i>
+                          </a>
+                          <!-- Twitter -->
+                          <a class="p-2 fa-lg tw-ic">
+                              <i class="fab fa-twitter blue-text"> </i>
+                          </a>
+                          <!-- Instagram -->
+                          <a class="p-2 fa-lg ins-ic">
+                              <i class="fab fa-instagram blue-text"> </i>
+                          </a>
+                    </ul>
+                    </div>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+          </section>
+          <!-- Section: Team v.1 -->
+      </div>
+   </div>
+    <div class="mx-4" *ngIf="temp1">
+      <div class="mt-4" *ngIf="teamdata">
+        <mat-card class= "align-items-center" style="background-color:rgb(180, 180, 252);">
+          <mat-card-header>
+            <mat-card-title class="justify-content-center" style="font-size:20px">ENTER NEW MEMBER</mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="card-body">
+        <input #member><br>
+        <button class="mt-4" (click) = "addMember(member.value)">
+          Add Member
+        </button>
+      </mat-card-content>
+      </mat-card>
+      </div>
+    </div>
+    <div class="mx-4" *ngIf="temp3">
+      <div class="mt-4" *ngIf="teamdata">
+        <mat-card class= "align-items-center" style="background-color:rgb(180, 180, 252);">
+          <mat-card-header>
+            <mat-card-title class="justify-content-center" style="font-size:20px">ENTER MEMBER'S USERNAME </mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="card-body">
+       <input #member><br>
+        <button class="mt-4" (click) ="removeMember(member.value)">
+          Remove Member
+        </button>
+      </mat-card-content>
+      </mat-card>
+      </div>
+    </div>
+
+    <div *ngIf="showchat">
+      <app-chat-room [team] = "teamdata"></app-chat-room>
+    </div>
+  </div>
+
+</div>
